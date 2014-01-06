@@ -8,22 +8,21 @@ public class NutritionStats {
 	private PlayerNutrition[] nutritions;
 	
 	public NutritionStats(){
-		nutritions = new PlayerNutrition[Nutrition.NUM_TYPE];
+		nutritions = new PlayerNutrition[Nutrient.NUM_TYPE];
 		//TODO
 		//nutritions[0] = new FoodPlayerNutrition();
-		nutritions[Nutrition.WATER] = new WaterPlayerNutrition();
+		nutritions[Nutrient.WATER] = new WaterPlayerNutrition();
 	}
 	
 	/**
 	 * @param par1 Nutrition Type (Food =0, Water =1) TODO not implemented
 	 * @param par2 Nutrition to be added
 	 */
-	public void addStats(Nutrition par2Nutrition){
+	public void addStats(Nutrient par2Nutrition){
 		nutritions[par2Nutrition.getType()].addStats(par2Nutrition);
 	}
-	public PlayerNutrition getStats(int par1){
-		//TODO no error checking
-		return nutritions[par1];
+	public PlayerNutrition getStats(Nutrient.Type type){
+		return nutritions[Nutrient.getTypeId(type)];
 	}
 	
     /**

@@ -25,11 +25,13 @@ public final class WaterPlayerNutrition extends PlayerNutrition {
 		//int i = par1EntityPlayer.worldObj.difficultySetting;
         
 		timer++;
-		if(timer>100){
+		if(timer>240){
 			if(this.buffer>0){
-				this.buffer--;
+				this.buffer-=10;
+			}else if(this.buffer==0){
+				par1EntityPlayer.addChatMessage("You feel a little dry.");
 			}else if(this.level>0){
-				this.level--;
+				this.level-=10;
 			}else{
 				//TODO negative effect
 			}

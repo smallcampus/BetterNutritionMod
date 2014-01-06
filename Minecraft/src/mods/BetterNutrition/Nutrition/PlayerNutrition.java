@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
  * 
  * @author smallcampus
  * @see net.minecraft.util.FoodStats
- * @see mods.BetterNutrition.Nutrition.Nutrition
+ * @see mods.BetterNutrition.Nutrition.Nutrient
  */
 public abstract class PlayerNutrition {
 	protected int level;
@@ -38,7 +38,7 @@ public abstract class PlayerNutrition {
 		this.buffer = Math.min(par2+this.buffer, maxBuffer);
 	}
 	
-	public void addStats(Nutrition par1Nutrition){
+	public void addStats(Nutrient par1Nutrition){
 		this.addStats(par1Nutrition.getNutritionLevel(),par1Nutrition.getNutritionBuffer());
 	}
 	

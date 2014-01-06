@@ -6,10 +6,18 @@ package mods.BetterNutrition.Nutrition;
  * @author smallcampus
  * @see PlayerNutrition
  */
-public class Nutrition{
+public class Nutrient{
 	public static enum Type{FOOD, WATER};
 	public static final int FOOD = 0;
 	public static final int WATER =1;
+	public static int getTypeId(Type type){
+		switch(type){
+		case FOOD:
+			return Nutrient.FOOD;
+		default:
+			return Nutrient.WATER;
+		}
+	}
 	/**
 	 * Number of nutrition type
 	 */
@@ -24,7 +32,7 @@ public class Nutrition{
 	 * @param par2 Nutrition level
 	 * @param par3 Nutrition buffer
 	 */
-	public Nutrition(int par1, int par2, int par3){
+	public Nutrient(int par1, int par2, int par3){
 		this.type = par1; 
 		this.level = par2;
 		this.buffer = par3;

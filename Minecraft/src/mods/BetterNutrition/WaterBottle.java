@@ -2,7 +2,7 @@ package mods.BetterNutrition;
 
 import java.util.Vector;
 
-import mods.BetterNutrition.Nutrition.Nutrition;
+import mods.BetterNutrition.Nutrition.Nutrient;
 import mods.BetterNutrition.Nutrition.NutritionStats;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,10 +15,10 @@ public class WaterBottle extends ItemFood {
 
 	final static int maxContent = 6;
 	int curContent = 0;
-	private Nutrition nutrition = new Nutrition(Nutrition.WATER,1000,100);
+	private Nutrient nutrition = new Nutrient(Nutrient.WATER,1000,100);
 	
-	public WaterBottle(){
-		super(5000,0,0,false);
+	public WaterBottle(int id){
+		super(id,0,0,false);
 	}
 	
 	@Override
@@ -27,9 +27,9 @@ public class WaterBottle extends ItemFood {
         //--par1ItemStack.stackSize;
         //par3EntityPlayer.getFoodStats().addStats(this);
 		NutritionStats n = par3EntityPlayer.getNutritionStats();
-		System.out.println("WaterBottle: before water drank, level:"+n.getStats(Nutrition.WATER).getNutritionLevel()+"|buffer:"+n.getStats(Nutrition.WATER).getNutritionBuffer());
+		System.out.println("WaterBottle: before water drank, level:"+n.getStats(Nutrient.Type.WATER).getNutritionLevel()+"|buffer:"+n.getStats(Nutrient.Type.WATER).getNutritionBuffer());
 		n.addStats(nutrition);
-		System.out.println("WaterBottle: after water drank, level:"+n.getStats(Nutrition.WATER).getNutritionLevel()+"|buffer:"+n.getStats(Nutrition.WATER).getNutritionBuffer());
+		System.out.println("WaterBottle: after water drank, level:"+n.getStats(Nutrient.Type.WATER).getNutritionLevel()+"|buffer:"+n.getStats(Nutrient.Type.WATER).getNutritionBuffer());
         par2World.playSoundAtEntity(par3EntityPlayer, "random.burp", 0.5F, par2World.rand.nextFloat() * 0.1F + 0.9F);
         this.onFoodEaten(par1ItemStack, par2World, par3EntityPlayer);
         return par1ItemStack;
